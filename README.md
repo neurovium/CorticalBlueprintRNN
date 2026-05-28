@@ -139,9 +139,9 @@ Three complementary pairwise functional measures are derived from the binned spi
 
 Recurrent weights for `W*` and `W!` variants are sampled from a log-normal distribution ($\mu = -0.5$, $\sigma = 0.5$, chosen to reflect biological heavy-tailed synaptic distributions) and modulated element-wise by the functional matrices:
 
-\[
+$$
 W_{\text{bio}} = W_{\text{lognormal}} \odot \text{Corr} \odot \text{STTC}
-\]
+$$
 
 <p align="right"><em>(Eq. 7)</em></p>
 
