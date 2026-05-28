@@ -155,7 +155,9 @@ Real neuronal coordinates (`D*`) are min–max-normalized per axis and converted
 
 Communicability is computed online during training from the absolute recurrent weight matrix:
 
-$$C = e^{S^{-1/2} W S^{-1/2}} \tag{Eq.~5}$$
+$$C = e^{S^{-1/2} W S^{-1/2}}$$
+
+<p align="right"><em>(Eq. 7)</em></p>
 
 where $S$ is the diagonal matrix of node strengths and diagonal entries are zeroed. For the EMD arm (`C*`), the empirical communicability $\mathbf{C}_{\text{emp}}$ is computed once from the MICrONS connectome with the same formula, and the model is regularized to match this empirical distribution via the Wasserstein distance between sorted quantiles.
 
