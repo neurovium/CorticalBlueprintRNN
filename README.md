@@ -139,7 +139,11 @@ Three complementary pairwise functional measures are derived from the binned spi
 
 Recurrent weights for `W*` and `W!` variants are sampled from a log-normal distribution ($\mu = -0.5$, $\sigma = 0.5$, chosen to reflect biological heavy-tailed synaptic distributions) and modulated element-wise by the functional matrices:
 
-$$W_{\text{bio}} = W_{\text{lognormal}} \odot \text{Corr} \odot \text{STTC} \tag{Eq.~7}$$
+\[
+W_{\text{bio}} = W_{\text{lognormal}} \odot \text{Corr} \odot \text{STTC}
+\]
+
+<p align="right"><em>(Eq. 7)</em></p>
 
 After construction, $W_{\text{bio}}$ is rescaled to mean 0.1, thresholded at 0.01 (to suppress near-zero connections), and rescaled to a spectral radius of 0.95 for stable recurrent dynamics. `W!` is a permutation of `W*` that preserves the marginal distribution while breaking the neuron-to-weight mapping. Non-bio variants use `Orthogonal` initialization. Replacing `Corr` with the precision matrix yields the precision-based init used in the robustness arm.
 
