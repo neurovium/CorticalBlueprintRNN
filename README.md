@@ -13,7 +13,7 @@ This repository accompanies the paper *"Harnessing cortical geometry, wiring, an
 ```
 CorticalBlueprintRNN/
 ├── README.md                           ← you are here
-├── main.tex                            ← the manuscript (LaTeX, revtex4-1)
+├── CorticalBlueprintRNN.pdf            ← the manuscript 
 │
 ├── Model/         ← model & training pipeline
 │   ├── README.md                       ← repo readme + Colab badge + wiki index
