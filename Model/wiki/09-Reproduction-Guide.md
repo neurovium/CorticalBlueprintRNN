@@ -9,9 +9,14 @@ End-to-end recipe for running the training pipeline that produces the inputs to 
 - Disk: under 100 MB for a single field's output folder.
 - Compute: the canonical run (`simulations = 20`, 11 variants, 3 tasks, 10 epochs, 312-neuron field) finishes in well under an hour on a single modern GPU; multiple hours on CPU.
 
-## Step 1 — Run the data download cell (once)
+## Step 1 — Ensure data is available locally
 
-The data-download cell at the top of the notebook fetches `DATA.zip` and `INF.md` from the public GitHub mirror and unzips `DATA/info/<sess>_<scan>_<field>/` folders into the working directory. If you already have `DATA/` populated (as is the case in this repo checkout), this cell is a no-op.
+The notebook expects `DATA/` and `INF.md` to already be present next to the notebook (as in a full repository checkout or manual setup).
+
+If `DATA/` is already populated, no additional action is needed. The notebook will read directly from:
+
+* `INF.md`
+* `DATA/info/<sess>_<scan>_<field>/` folders
 
 ## Step 2 — Set the parameters cell to the paper config
 

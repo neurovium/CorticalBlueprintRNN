@@ -14,9 +14,9 @@ For the methodology, parameter reference, and step-by-step reproduction guide, s
 Model/
 ├── README.md                          # This file
 ├── INF.md                             # Per-field index (session, scan, field, neuron count, grid)
-├── CorticalBlueprintRNN.ipynb        # Main experimental notebook
+├── CorticalBlueprintRNN.ipynb         # Main experimental notebook
 ├── DATA/info/<sess>_<scan>_<field>/   # Preprocessed MICrONS arrays (one folder per field)
-└── wiki/        # Detailed documentation (see below)
+└── wiki/                              # Detailed documentation (see below)
 ```
 
 ## Wiki contents

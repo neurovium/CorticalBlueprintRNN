@@ -40,13 +40,13 @@ The eleven variants are not the full Cartesian product of the three factor sets 
 
 | # | name | bio init | spatial | comm. | regularizer |
 |---|---|---|---|---|---|
-| 1 | **W\*D\*C**   | yes (`W*`)  | real (`D*`) | direct (`C`)  | $\lambda \, \lVert W^{*} \odot D^{*} \odot C \rVert$ |
+| 1 | **W\*D\*C**   | yes (`W*`)  | real (`D*`) | direct (`C`)  | $\lambda \, \lVert W^{\ast} \odot D^{*} \odot C \rVert$ |
 | 2 | WD\*C     | no          | real (`D*`) | direct (`C`)  | $\lambda \, \lVert W \odot D^{*} \odot C \rVert$ |
 | 3 | WDC       | no          | grid (`D`)  | direct (`C`)  | $\lambda \, \lVert W \odot D \odot C \rVert$ |
 | 4 | WD\*      | no          | real (`D*`) | none          | $\lambda \, \lVert W \odot D^{*} \rVert$ |
 | 5 | WD        | no          | grid (`D`)  | none          | $\lambda \, \lVert W \odot D \rVert$ |
 | 6 | W (Simple) | no         | none        | none          | $\lambda \, \lVert W \rVert$ |
-| 7 | **W\*D\*C\*** | yes (`W*`) | real (`D*`) | EMD (`C*`)   | $\lambda \, \lVert W^{*} \odot D^{*} \rVert + \lambda_{\text{EMD}} \cdot \text{EMD}(C_{\text{emp}}, C_{\text{art}})$ |
+| 7 | **W\*D\*C\*** | yes (`W*`) | real (`D*`) | EMD (`C*`)   | $\lambda \, \lVert W^{\ast} \odot D^{*} \rVert + \lambda_{\text{EMD}} \cdot \text{EMD}(C_{\text{emp}}, C_{\text{art}})$ |
 | 8 | WD\*C\*   | no          | real (`D*`) | EMD (`C*`)    | $\lambda \, \lVert W \odot D^{*} \rVert + \lambda_{\text{EMD}} \cdot \text{EMD}(C_{\text{emp}}, C_{\text{art}})$ |
 | 9 | W\*DC\*   | yes (`W*`)  | grid (`D`)  | EMD (`C*`)    | $\lambda \, \lVert W^{*} \odot D \rVert + \lambda_{\text{EMD}} \cdot \text{EMD}(C_{\text{emp}}, C_{\text{art}})$ |
 | 10 | W!D\*C   | yes (`W!`)  | real (`D*`) | direct (`C`)  | $\lambda \, \lVert W^{!} \odot D^{*} \odot C \rVert$ |

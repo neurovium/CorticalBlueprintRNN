@@ -1,23 +1,33 @@
 # 03 — Data inputs
 
-This page is the contract between the preprocessed MICrONS arrays and the training notebook. If you change either side, change this page too.
-
 ## Where the inputs come from
 
-The notebook's data-download cell pulls the preprocessed archive directly from the public mirror:
+The notebook expeccts all inputs to be **present locally next to the notebook**.
+You should have the following structure:
 
-```bash
-curl -sS -L -o INF.md   https://github.com/moneuron/neuro-constrained-RNN/raw/refs/heads/main/INF.md
-curl -sS -L -o DATA.zip https://github.com/moneuron/neuro-constrained-RNN/raw/refs/heads/main/DATA.zip
-unzip -q DATA.zip && rm -f DATA.zip
+```
+INF.md
+DATA/
+  info/
+    <session>_<scan>_<field>/
+      ...
 ```
 
-This produces:
+### Required files
 
-- [`INF.md`](../INF.md) — the per-field index (session, scan, field, neuron count, grid shape).
-- `DATA/info/<sess>_<scan>_<field>/` — one folder per imaged field, each containing the five files described below.
+* `INF.md` — index of all available fields (session, scan, field metadata)
+* `DATA/info/<session>_<scan>_<field>/` — preprocessed arrays per field
 
-If you ship preprocessed data alongside the repo (as is the case here), the `DATA/` folder is already populated and the download cell becomes a no-op; the `Loading` cell just reads from disk.
+Each field folder contains the five preprocessed files required by the notebook pipeline (described below).
+
+### Setup
+
+If you are running locally or in Colab, simply ensure that:
+
+* The `DATA/` directory is placed next to the notebook
+* `INF.md` is in the same directory as the notebook
+
+Then run the notebook normally. The loading cell will read directly from disk.
 
 ## Per-field folder layout
 

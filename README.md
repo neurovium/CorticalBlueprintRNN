@@ -167,10 +167,10 @@ Three forms appear across the variants:
 
 | form | applies to |
 |---|---|
-| $\lambda\,\lVert W\rVert$                                                              | baseline $W$ only |
-| $\lambda\,\lVert W \odot D \rVert$                                                     | `WD`, `WD*` |
-| $\lambda\,\lVert W \odot D \odot C \rVert$                                             | direct-$C$ variants (`*DC`, `*D*C`) |
-| $\lambda\,\lVert W \odot D \rVert + \lambda_{\text{EMD}}\cdot\text{EMD}(C_{\text{emp}},C_{\text{art}})$ | EMD-$C^{*}$ variants |
+| $\lambda\,\lVert W\rVert$ | baseline `W` only |
+| $\lambda\,\lVert W \odot D \rVert$ | `WD`, `WD*` |
+| $\lambda\,\lVert W \odot D \odot C \rVert$ | direct-C variants (`*DC`, `*D*C`) |
+| $\lambda\,\lVert W \odot D \rVert + \lambda_{\text{EMD}}\cdot\text{EMD}(C_{\text{emp}},C_{\text{art}})$ | EMD-C* variants |
 
 with $\lambda = 0.3$, $\lambda_{\text{EMD}} = 0.1$ held fixed across all tasks, fields and variants.
 
@@ -180,13 +180,13 @@ Asterisks denote empirical constraints; `!` denotes a structure-disrupting permu
 
 | # | Model       | Bio init  | Spatial   | Communicability  | Regularizer                                                                                              |
 |---|-------------|-----------|-----------|------------------|----------------------------------------------------------------------------------------------------------|
-| a | **W\*D\*C**     | yes (W\*) | real (D\*) | direct (C)      | $\lambda\,\lVert W^{*}\odot D^{*}\odot C\rVert$                                                          |
+| a | **W\*D\*C**     | yes (W\*) | real (D\*) | direct (C)      | $\lambda\,\lVert W^{\ast}\odot D^{*}\odot C\rVert$                                                          |
 | b | WD\*C       | no        | real (D\*) | direct (C)       | $\lambda\,\lVert W\odot D^{*}\odot C\rVert$                                                              |
 | c | WDC         | no        | grid (D)  | direct (C)       | $\lambda\,\lVert W\odot D\odot C\rVert$                                                                  |
 | d | WD\*        | no        | real (D\*) | none             | $\lambda\,\lVert W\odot D^{*}\rVert$                                                                     |
 | e | WD          | no        | grid (D)  | none             | $\lambda\,\lVert W\odot D\rVert$                                                                         |
 | f | W (Simple)  | no        | none      | none             | $\lambda\,\lVert W\rVert$                                                                                |
-| g | **W\*D\*C\***   | yes (W\*) | real (D\*) | EMD (C\*)        | $\lambda\,\lVert W^{*}\odot D^{*}\rVert + \lambda_{\text{EMD}}\cdot\text{EMD}(C_{\text{emp}},C_{\text{art}})$ |
+| g | **W\*D\*C\***   | yes (W\*) | real (D\*) | EMD (C\*)        | $\lambda\,\lVert W^{\ast}\odot D^{*}\rVert + \lambda_{\text{EMD}}\cdot\text{EMD}(C_{\text{emp}},C_{\text{art}})$ |
 | h | WD\*C\*     | no        | real (D\*) | EMD (C\*)        | $\lambda\,\lVert W\odot D^{*}\rVert + \lambda_{\text{EMD}}\cdot\text{EMD}(C_{\text{emp}},C_{\text{art}})$    |
 | i | W\*DC\*     | yes (W\*) | grid (D)  | EMD (C\*)        | $\lambda\,\lVert W^{*}\odot D\rVert + \lambda_{\text{EMD}}\cdot\text{EMD}(C_{\text{emp}},C_{\text{art}})$    |
 | j | W!D\*C      | yes (W!)  | real (D\*) | direct (C)       | $\lambda\,\lVert W^{!}\odot D^{*}\odot C\rVert$                                                          |
@@ -234,7 +234,7 @@ These are implemented in [`StatisticalAnalysis/wiki/`](StatisticalAnalysis/wiki/
 ### 1. Clone & install
 
 ```bash
-git clone <this-repo-url>
+git clone https://github.com/neurovium/CorticalBlueprintRNN.git
 cd CorticalBlueprintRNN
 pip install bctpy tensorflow scipy matplotlib numpy pandas seaborn tqdm networkx scikit-learn statsmodels
 ```
