@@ -19,7 +19,7 @@ from scipy.stats import kruskal
 H, p = kruskal(group1, group2, group3)
 ```
 
-Used **per factor**, holding the other factors fixed (see [05 — Effect of W, D, C](05-Effect-of-W-D-C-Variants.md)).
+Used **per factor**, holding the other factors fixed (see [05 — Effect of Model Variants](05-Effect-of-Model-Variants.md)).
 
 ## 3. Mann–Whitney $U$ test (pairwise post-hoc)
 
@@ -47,7 +47,40 @@ reject, p_adj, _, _ = multipletests(raw_p_values, alpha=0.05, method='holm')
 
 The corrected $p$-values are what enter S5/S6/S7 in the paper.
 
-## 5. Bootstrap 95% confidence interval (percentile method)
+## 5. Rank-based factorial ANOVA
+
+Nonparametric approximation to factorial ANOVA obtained by replacing the response values with their global ranks, then fitting a standard linear model on the ranked data.
+
+For each metric, observations are ranked:
+
+$$
+r_i = \operatorname{rank}(x_i)
+$$
+
+and the model
+
+$$
+r \sim C(W) * C(D) * C(C)
+$$
+
+is fit using ordinary least squares, followed by a Type-II ANOVA decomposition.
+
+```python
+from statsmodels.formula.api import ols
+import statsmodels.api as sm
+
+model = ols(
+    'ranked ~ C(w_variant) * C(d_variant) * C(c_variant)',
+    data=d
+).fit()
+
+anova_table = sm.stats.anova_lm(model, typ=2)
+```
+
+Used as a global nonparametric test for main effects and interactions before the per-factor simple-effects analysis.
+
+
+## 6. Bootstrap 95% confidence interval (percentile method)
 
 For one `(variant, task, metric)` row of the raw CSV — i.e. 20 values — sample with replacement to produce many resampled means, then take the 2.5th and 97.5th percentiles.
 
@@ -59,12 +92,12 @@ resampled = [rng.choice(x, size=len(x), replace=True).mean()
 lo, hi = np.percentile(resampled, [2.5, 97.5])
 ```
 
-`6_6_2_sttc_corr_single_metric.ipynb` also reports the t-distribution CI
+`6_6_2_confidence_intervals.ipynb` also reports the t-distribution CI
 $\bar{x} \pm t_{0.975, n-1}\,\hat{\sigma}/\sqrt{n}$ for comparison; the paper cites the bootstrap CI in Tables 2 and 3.
 
-## 6. Mutual information & Spearman correlation (diagnostics)
+## 7. Mutual information & Spearman correlation (diagnostics)
 
-Used in `6_6_2_sttc_corr_all_metric.ipynb` only, to map redundancy across the eight metrics:
+Used in `6_6_2_sttc_corr_metric_dist_check.ipynb` only, to map redundancy across the eight metrics:
 
 ```python
 from sklearn.feature_selection import mutual_info_regression

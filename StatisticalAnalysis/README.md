@@ -12,13 +12,11 @@ The pipeline is nonparametric end-to-end (Kruskal–Wallis omnibus → Mann–Wh
 ```
 StatisticalAnalysis/
 ├── README.md                                            # This file
-├── 6_6_2_sttc_corr_all_metric.ipynb                     # Distribution diagnostics (justifies KW/MWU)
-├── 6_6_2_sttc_corr_single_metric.ipynb                  # 95% confidence intervals (Table 2)
-├── 6_6_2_sttc_corr.ipynb                                # Per-metric comparison scratchpad
-├── The_Effect_of_w,_d_and_c_variants_Task_1.ipynb       # KW + MWU + Holm on Task 1 (S5–S7)
-├── The_Effect_of_w,_d_and_c_variants_Task_2.ipynb       # same for Task 2
-├── The_Effect_of_w,_d_and_c_variants_Task_3.ipynb       # same for Task 3
-├── The_Effect_of_w_d_and_c_variants .ipynb              # Earlier combined version (reference only)
+├── 6_6_2_sttc_corr_metric_dist_check.ipynb              # Distribution diagnostics (justifies KW/MWU)
+├── 6_6_2_confidence_intervals.ipynb                     # 95% confidence intervals (Table 2)
+├── The_Effect_of_model_variants_Task_1.ipynb            # KW + MWU + Holm on Task 1 (S5–S7)
+├── The_Effect_of_model_variants_Task_2.ipynb            # same for Task 2
+├── The_Effect_of_model_variants_Task_3.ipynb            # same for Task 3
 └── wiki/                                                # Detailed documentation (see below)
 ```
 
@@ -29,9 +27,9 @@ StatisticalAnalysis/
 | [Home](wiki/Home.md) | Landing page + table of contents |
 | [01 — Overview](wiki/01-Overview.md) | What each notebook does and which paper table/figure it backs |
 | [02 — Input data schema](wiki/02-Input-Data-Schema.md) | Folder layout, CSV schema, the 11-variant row order |
-| [03 — Distribution diagnostics](wiki/03-Distribution-Diagnostics.md) | `6_6_2_sttc_corr_all_metric.ipynb` — why nonparametric |
-| [04 — Confidence intervals](wiki/04-Confidence-Intervals.md) | `6_6_2_sttc_corr_single_metric.ipynb` — Table 2 CIs |
-| [05 — Effect of W, D, C variants](wiki/05-Effect-of-W-D-C-Variants.md) | `Task_{1,2,3}` notebooks — Tables S5–S7 |
+| [03 — Distribution diagnostics](wiki/03-Distribution-Diagnostics.md) | `6_6_2_sttc_corr_metric_dist_check.ipynb` — why nonparametric |
+| [04 — Confidence intervals](wiki/04-Confidence-Intervals.md) | `6_6_2_confidence_intervals.ipynb` — Table 2 CIs |
+| [05 — Effect of Model variants](wiki/05-Effect-of-Model-Variants.md) | `Task_{1,2,3}` notebooks — Tables S5–S7 |
 | [06 — Statistical methods](wiki/06-Statistical-Methods.md) | Reference for KW, MWU, Holm, bootstrap |
 | [07 — Reproduction guide](wiki/07-Reproduction-Guide.md) | End-to-end recipe (train → stat) |
 
@@ -39,13 +37,12 @@ StatisticalAnalysis/
 
 | notebook | role | paper artifact |
 |---|---|---|
-| `6_6_2_sttc_corr_all_metric.ipynb` | distribution diagnostics across all 8 metrics for the canonical `W*D*C` model | motivation for using nonparametric tests |
-| `6_6_2_sttc_corr_single_metric.ipynb` | bootstrap / t-distribution 95% CIs per metric per variant per task | parenthesized CIs in Table 2 (and Table 3) |
-| `6_6_2_sttc_corr.ipynb` | per-metric model comparison scratchpad | exploratory; superseded by the Task_{1,2,3} notebooks |
-| `The_Effect_of_w,_d_and_c_variants_Task_1.ipynb` | KW + MWU + Holm on Task 1 across W, D, C variants | Supplementary Tables S5–S7 (Task 1 column) |
-| `The_Effect_of_w,_d_and_c_variants_Task_2.ipynb` | same for Task 2 | S5–S7 (Task 2 column) |
-| `The_Effect_of_w,_d_and_c_variants_Task_3.ipynb` | same for Task 3 | S5–S7 (Task 3 column) |
-| `The_Effect_of_w_d_and_c_variants .ipynb` | earlier combined version of the three task notebooks | reference only |
+| `6_6_2_sttc_corr_metric_dist_check.ipynb` | distribution diagnostics across all 8 metrics for the canonical `W*D*C` model | motivation for using nonparametric tests |
+| `6_6_2_confidence_intervals.ipynb` | bootstrap / t-distribution 95% CIs per metric per variant per task | parenthesized CIs in Table 2 (and Table 3) |
+| `The_Effect_of_model_variants_Task_1.ipynb` | KW + MWU + Holm on Task 1 across W, D, C variants | Supplementary Tables S5–S7 (Task 1 column) |
+| `The_Effect_of_model_variants_Task_2.ipynb` | same for Task 2 | S5–S7 (Task 2 column) |
+| `The_Effect_of_model_variants_Task_3.ipynb` | same for Task 3 | S5–S7 (Task 3 column) |
+
 
 ## Input contract
 
@@ -63,9 +60,9 @@ Full schema in [02 — Input data schema](wiki/02-Input-Data-Schema.md).
 2. Install the stat dependencies (`pip install scipy numpy pandas matplotlib seaborn statsmodels scikit-learn`).
 3. Point the `folder_name` constant at the top of each notebook to your training-output folder (Colab default: `/content/data/simu/<base>/`).
 4. Run, in this order:
-   1. `6_6_2_sttc_corr_all_metric.ipynb` — verifies the metric distributions are non-Gaussian.
-   2. `6_6_2_sttc_corr_single_metric.ipynb` — produces the 95% CIs in Table 2.
-   3. `The_Effect_of_w,_d_and_c_variants_Task_{1,2,3}.ipynb` — KW + MWU + Holm per factor (`W`, `D`, `C`), producing Supplementary Tables S5–S7.
+   1. `6_6_2_sttc_corr_metric_dist_check.ipynb` — verifies the metric distributions are non-Gaussian.
+   2. `6_6_2_confidence_intervals.ipynb` — produces the 95% CIs in Table 2.
+   3. `The_Effect_of_model_variants_Task_{1,2,3}.ipynb` — KW + MWU + Holm per factor (`W`, `D`, `C`), producing Supplementary Tables S5–S7.
 
 Full step-by-step recipe, including the robustness arms (precision matrix, sign constraint, cross-field), is in [07 — Reproduction guide](wiki/07-Reproduction-Guide.md).
 

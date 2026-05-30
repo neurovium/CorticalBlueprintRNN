@@ -1,6 +1,6 @@
 # 04 — Confidence intervals
 
-Notebook: `6_6_2_sttc_corr_single_metric.ipynb`
+Notebook: `6_6_2_confidence_intervals.ipynb`
 
 ## Purpose
 

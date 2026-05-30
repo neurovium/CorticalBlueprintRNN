@@ -1,6 +1,6 @@
 # 03 — Distribution diagnostics
 
-Notebook: `6_6_2_sttc_corr_all_metric.ipynb`
+Notebook: `6_6_2_sttc_corr_metric_dist_check.ipynb`
 
 ## Purpose
 

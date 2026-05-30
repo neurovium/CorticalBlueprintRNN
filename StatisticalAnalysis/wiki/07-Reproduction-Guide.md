@@ -51,9 +51,9 @@ The stat notebooks expect the output under `/content/data/simu/<base>/`. Three o
 
 In this order:
 
-1. **Distribution diagnostics** — `6_6_2_sttc_corr_all_metric.ipynb`. No exported numbers; confirms the metric distributions are non-Gaussian and therefore that KW/MWU/Holm are appropriate. Skim the histograms before trusting the rest.
-2. **Confidence intervals** — `6_6_2_sttc_corr_single_metric.ipynb`. Set `metric = 'Accuracy'` and `sign_constraint = False` to regenerate **Table 2**. Repeat with other `metric` values for the per-metric CIs cited elsewhere.
-3. **Effect of W, D, C per task** — `The_Effect_of_w,_d_and_c_variants_Task_1.ipynb`, `_Task_2.ipynb`, `_Task_3.ipynb`. These produce the omnibus + pairwise Holm-corrected $p$-values that fill **Supplementary Tables S5 (W), S6 (D), S7 (C)** — one column per task.
+1. **Distribution diagnostics** — `6_6_2_sttc_corr_metric_dist_check.ipynb`. No exported numbers; confirms the metric distributions are non-Gaussian and therefore that KW/MWU/Holm are appropriate. Skim the histograms before trusting the rest.
+2. **Confidence intervals** — `6_6_2_confidence_intervals.ipynb`. Set `metric = 'Accuracy'` and `sign_constraint = False` to regenerate **Table 2**. Repeat with other `metric` values for the per-metric CIs cited elsewhere.
+3. **Effect of W, D, C per task** — `The_Effect_of_model_variants_Task_1.ipynb`, `_Task_2.ipynb`, `_Task_3.ipynb`. These produce the omnibus + pairwise Holm-corrected $p$-values that fill **Supplementary Tables S5 (W), S6 (D), S7 (C)** — one column per task.
 
 ## Step 4 — Robustness arms
 
@@ -63,7 +63,7 @@ Rerun **Step 1** with:
 ```python
 sign_constraint = True
 ```
-→ produces `6_6_2_sttc-corr_sign+/`. Re-run `6_6_2_sttc_corr_single_metric.ipynb` with `sign_constraint = True` and `metric = 'Accuracy'`.
+→ produces `6_6_2_sttc-corr_sign+/`. Re-run `6_6_2_confidence_intervals.ipynb` with `sign_constraint = True` and `metric = 'Accuracy'`.
 
 ### 4b. Precision matrix as bio-init prior
 

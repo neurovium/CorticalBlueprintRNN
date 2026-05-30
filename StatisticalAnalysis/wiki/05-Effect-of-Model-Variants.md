@@ -1,7 +1,7 @@
-# 05 — Effect of W, D, C variants
+# 05 — Effect of Model variants
 
-Notebooks: `The_Effect_of_w,_d_and_c_variants_Task_1.ipynb`, `_Task_2.ipynb`, `_Task_3.ipynb`
-(plus the earlier combined `The_Effect_of_w_d_and_c_variants .ipynb`)
+Notebooks: `The_Effect_of_model_variants_Task_1.ipynb`, `_Task_2.ipynb`, `_Task_3.ipynb`
+
 
 ## Purpose
 
@@ -15,7 +15,7 @@ These notebooks produce **Supplementary Tables S5–S7** — one supplementary t
 | **S6** | Effect of $D$ — `D` vs `D*`, holding $W, C$ fixed |
 | **S7** | Effect of $C$ — none vs `C` vs `C*`, holding $W, D$ fixed |
 
-Each notebook is one task. The combined ` The_Effect_of_w_d_and_c_variants .ipynb` is an earlier version that runs the same analysis across all three tasks in one place; it is kept for cross-checking but is superseded by the task-specific notebooks.
+Each notebook is one task.
 
 ## Inputs
 
@@ -39,14 +39,17 @@ for `N ∈ {1, 2, 3}` (one task per notebook) and every metric in
 
 For each metric:
 
-1. **Slice by factor.** Given the 11-variant table, hold two factors fixed at one of their allowed combinations and gather the columns for the levels of the remaining factor.
-   - Example: "Effect of $W$ at $(D = D^{*}, C = C)$" → take rows `W*D*C`, `WD*C`, `W!D*C` and treat them as three groups of 20 observations each.
-2. **Kruskal–Wallis omnibus** (`scipy.stats.kruskal`) across the groups → $H$, $p$.
-3. **Mann–Whitney U pairwise** (`scipy.stats.mannwhitneyu`) between every pair of levels → $U$, raw $p$.
-4. **Holm step-down correction** (`statsmodels.stats.multitest.multipletests(..., method='holm')`) across the family of pairwise tests for that factor / fixed-context cell.
-5. Optionally rank-standardize the inputs using `MinMaxScaler` / `StandardScaler` before re-running.
+1. **Rank-based factorial ANOVA.** First, performed a nonparametric factorial analysis by ranking the metric values and fitting a full interaction ANOVA model (`rank_based_anova`) over `W`, `D`, and `C`.
+2. **Slice by factor.** Given the 11-variant table, hold two factors fixed at one of their allowed combinations and gather the columns for the levels of the remaining factor.
+
+   * Example: "Effect of $W$ at $(D = D^{*}, C = C)$" → take rows `W*D*C`, `WD*C`, `W!D*C` and treat them as three groups of 20 observations each.
+3. **Kruskal–Wallis omnibus** (`scipy.stats.kruskal`) across the groups → $H$, $p$.
+4. **Mann–Whitney U pairwise** (`scipy.stats.mannwhitneyu`) between every pair of levels → $U$, raw $p$.
+5. **Holm step-down correction** (`statsmodels.stats.multitest.multipletests(..., method='holm')`) across the family of pairwise tests for that factor / fixed-context cell.
+6. Optionally rank-standardize the inputs using `MinMaxScaler` / `StandardScaler` before re-running.
 
 `itertools.combinations` is used to enumerate the pairs, and the corrected $p$-values are pasted into S5/S6/S7.
+
 
 ## What the paper says these tests show
 

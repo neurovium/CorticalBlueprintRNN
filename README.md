@@ -33,18 +33,16 @@ CorticalBlueprintRNN/
 │       └── 09-Reproduction-Guide.md
 │
 └── StatisticalAnalysis/               ← post-hoc nonparametric stats
-    ├── 6_6_2_sttc_corr.ipynb           ← per-metric comparison scratchpad
-    ├── 6_6_2_sttc_corr_all_metric.ipynb       ← distribution diagnostics (justifies KW/MWU)
-    ├── 6_6_2_sttc_corr_single_metric.ipynb    ← 95% confidence intervals (Table 2)
-    ├── The_Effect_of_w,_d_and_c_variants_Task_{1,2,3}.ipynb  ← KW + MWU + Holm per task (S5–S7)
-    ├── The_Effect_of_w_d_and_c_variants .ipynb               ← earlier combined version
+    ├── 6_6_2_sttc_corr_metric_dist_check.ipynb       ← distribution diagnostics (justifies KW/MWU)
+    ├── 6_6_2_confidence_intervals.ipynb    ← 95% confidence intervals (Table 2)
+    ├── The_Effect_of_model_variants_Task_{1,2,3}.ipynb  ← KW + MWU + Holm per task (S5–S7)
     └── wiki/                           ← detailed documentation for the statistical pipeline
         ├── Home.md, _Sidebar.md
         ├── 01-Overview.md
         ├── 02-Input-Data-Schema.md
         ├── 03-Distribution-Diagnostics.md
         ├── 04-Confidence-Intervals.md
-        ├── 05-Effect-of-W-D-C-Variants.md
+        ├── 05-Effect-of-Model-Variants.md
         ├── 06-Statistical-Methods.md
         └── 07-Reproduction-Guide.md
 ```
@@ -69,7 +67,7 @@ The two wikis are kept side-by-side rather than merged: [`Model/wiki/`](Model/wi
 [Input schema](StatisticalAnalysis/wiki/02-Input-Data-Schema.md) ·
 [Distribution diagnostics](StatisticalAnalysis/wiki/03-Distribution-Diagnostics.md) ·
 [Confidence intervals](StatisticalAnalysis/wiki/04-Confidence-Intervals.md) ·
-[Effect of W, D, C](StatisticalAnalysis/wiki/05-Effect-of-W-D-C-Variants.md) ·
+[Effect of Model Variants](StatisticalAnalysis/wiki/05-Effect-of-Model-Variants.md) ·
 [Statistical methods](StatisticalAnalysis/wiki/06-Statistical-Methods.md) ·
 [Reproduction](StatisticalAnalysis/wiki/07-Reproduction-Guide.md)
 
@@ -218,7 +216,7 @@ All graph metrics are computed on undirected binary graphs obtained by taking $|
 
 ### Statistical analysis
 
-Because metrics across the 20 simulation runs are heavy-tailed and not Gaussian, the paper uses a nonparametric pipeline (justified by the diagnostics in `StatisticalAnalysis/6_6_2_sttc_corr_all_metric.ipynb`):
+Because metrics across the 20 simulation runs are heavy-tailed and not Gaussian, the paper uses a nonparametric pipeline (justified by the diagnostics in `StatisticalAnalysis/6_6_2_sttc_corr_metric_dist_check.ipynb`):
 
 1. Rank-based three-way ANOVA over factors $W$, $D$, $C$.
 2. Kruskal–Wallis omnibus per factor.
@@ -288,9 +286,9 @@ The stat notebooks expect the training-output folder under `/content/data/simu/<
 
 Then run, in this order:
 
-1. `6_6_2_sttc_corr_all_metric.ipynb` — verifies the metric distributions are non-Gaussian (justifies the nonparametric tests).
-2. `6_6_2_sttc_corr_single_metric.ipynb` — produces the 95% CIs that appear parenthesized in Table 2 of the paper.
-3. `The_Effect_of_w,_d_and_c_variants_Task_1.ipynb`, `_Task_2.ipynb`, `_Task_3.ipynb` — Kruskal–Wallis omnibus + Mann–Whitney U post-hoc with Holm correction per factor ($W$, $D$, $C$), producing Supplementary Tables S5–S7.
+1. `6_6_2_sttc_corr_metric_dist_check.ipynb` — verifies the metric distributions are non-Gaussian (justifies the nonparametric tests).
+2. `6_6_2_confidence_intervals.ipynb` — produces the 95% CIs that appear parenthesized in Table 2 of the paper.
+3. `The_Effect_of_model_variants_Task_1.ipynb`, `_Task_2.ipynb`, `_Task_3.ipynb` — Kruskal–Wallis omnibus + Mann–Whitney U post-hoc with Holm correction per factor ($W$, $D$, $C$), producing Supplementary Tables S5–S7.
 
 Full step-by-step recipe, including the robustness arms (precision matrix, sign constraint, cross-field), is in [`StatisticalAnalysis/wiki/07-Reproduction-Guide.md`](StatisticalAnalysis/wiki/07-Reproduction-Guide.md).
 
