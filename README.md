@@ -1,8 +1,17 @@
-# CorticalBlueprintRNN
+# Cortical Blueprint for RNNs — code release
 
-Harnessing cortical geometry, wiring, and function as inductive biases for recurrent neural networks.
+This directory is the self-contained code accompanying the paper:
 
-This repository accompanies the paper *"Harnessing cortical geometry, wiring, and function as inductive biases for recurrent neural networks"* (Shakiba, Rokni, Mohammadi, Dehghani). It contains the manuscript, the training pipeline that builds and trains eleven biologically grounded RNN variants on three cognitive decision-making tasks using data from the [MICrONS](https://www.microns-explorer.org/cortical-mm3) program, and the post-hoc statistical analysis used in the paper's main text and Supplementary Results.
+**Harnessing cortical geometry, wiring, and function as inductive biases for recurrent neural networks**
+
+Mo Shakiba, Rana Rokni, Mohammad Mohammadi and Nima Dehghani.
+
+[![arXiv](https://img.shields.io/badge/arXiv-2606.11415-b31b1b.svg)](https://arxiv.org/abs/2606.14975)
+[![PDF](https://img.shields.io/badge/PDF-2606.11415-blue.svg)](https://arxiv.org/pdf/2606.14975)
+[![HTML](https://img.shields.io/badge/HTML-2606.11415-green.svg)](https://arxiv.org/html/2606.14975v1)
+
+
+This repository contains the training pipeline that builds and trains eleven biologically grounded RNN variants on three cognitive decision-making tasks using data from the [MICrONS](https://www.microns-explorer.org/cortical-mm3) program, and the post-hoc statistical analysis used in the paper's main text and Supplementary Results.
 
 **Central finding.** Recurrent networks initialized from cortical functional connectivity and embedded in measured cortical coordinates learn faster and generalize better than baseline RNNs. Among the priors, function-derived weight initialization contributes the most, real spatial embedding adds a robust secondary benefit, and communicability-aware regularization refines the topology of the learned solution.
 
@@ -318,16 +327,21 @@ Other `(session, scan, field)` combinations from `Model/INF.md` reproduce the cr
 ---
 
 ## Citation
+If you use this code, please cite the accompanying paper:
 
 ```bibtex
-@article{shakiba2025cortical,
-  title   = {Harnessing cortical geometry, wiring, and function as inductive biases for recurrent neural networks},
-  author  = {Shakiba, Mo and Rokni, Rana and Mohammadi, Mohammad and Dehghani, Nima},
-  journal = {[in preparation]},
-  year    = {2025}
+@article{shakibaDehghani2026harnessingcorticalgeometrywiring,
+      title={Harnessing cortical geometry, wiring, and function as inductive biases for recurrent neural networks}, 
+      author={Mo Shakiba and Rana Rokni and Mohammad Mohammadi and Nima Dehghani},
+      year={2026},
+      eprint={2606.14975},
+      archivePrefix={arXiv},
+      primaryClass={cs.NE},
+      url={https://arxiv.org/abs/2606.14975}, 
 }
 ```
 
-## Acknowledgments
+[![Paper Card](https://img.shields.io/badge/Paper%20Card-Neurovium-6f42c1)](https://neurovium.science/papers/Cortical-blueprint-RNN/)
 
-N.D. is supported by NIH grant R24MH117295. M.S., R.R. and M.M. thank [Neuromatch Academy](https://neuromatch.io/) for support.
+[![Blog Post](https://img.shields.io/badge/Blog%20Post-Neurovium-0a7cff)]([https://neurovium.science/posts/pblog-SMR-local-global/](https://neurovium.science/posts/pblog-Cortical-blueprint-RNN/))
+
