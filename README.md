@@ -9,9 +9,9 @@ Companion code for the paper:
 > 
 > Mo Shakiba, Rana Rokni, Mohammad Mohammadi and Nima Dehghani. 2026.
 
-[![arXiv](https://img.shields.io/badge/arXiv-2606.11415-b31b1b.svg)](https://arxiv.org/abs/2606.14975)
-[![PDF](https://img.shields.io/badge/PDF-2606.11415-blue.svg)](https://arxiv.org/pdf/2606.14975)
-[![HTML](https://img.shields.io/badge/HTML-2606.11415-green.svg)](https://arxiv.org/html/2606.14975v1)
+[![arXiv](https://img.shields.io/badge/arXiv-2606.14975-b31b1b.svg)](https://arxiv.org/abs/2606.14975)
+[![PDF](https://img.shields.io/badge/PDF-2606.14975-blue.svg)](https://arxiv.org/pdf/2606.14975)
+[![HTML](https://img.shields.io/badge/HTML-2606.14975-green.svg)](https://arxiv.org/html/2606.14975v1)
 
 This repository contains the training pipeline that builds and trains eleven biologically grounded RNN variants on three cognitive decision-making tasks using data from the [MICrONS](https://www.microns-explorer.org/cortical-mm3) program, and the post-hoc statistical analysis used in the paper's main text and Supplementary Results.
 
