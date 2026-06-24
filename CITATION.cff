@@ -1,0 +1,58 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the paper below."
+title: "Cortical Blueprint for RNNs"
+abstract: >-
+  A software suite for using functional and structural connectomics as inductive biases for
+  neuro-inspired recurrent networks (RNNs).
+type: software
+
+authors:
+  - family-names: Shakiba
+    given-names: Mo
+  - family-names: Rokni
+    given-names: Rana
+  - family-names: Mohammad
+    given-names: Mohammadi
+  - family-names: Dehghani
+    given-names: Nima
+    email: nima.dehghani@mit.edu
+    orcid: "https://orcid.org/0000-0003-2032-8903"
+
+version: "1.0.0"
+date-released: "2026-06-16"
+doi: "10.5281/zenodo.20834365"
+license: MIT
+
+repository-code: "https://github.com/neurovium/CorticalBlueprintRNN/"
+url: "https://neurovium.science/papers/Cortical-blueprint-RNN/"
+
+keywords:
+  - NeuroAI
+  - Connectomics
+  - Neural Networks
+  - RNNs
+  - Optimization
+  - Functional Connectivity
+  - Pariwise Interaction
+
+preferred-citation:
+  type: article
+  title: "Harnessing cortical geometry, wiring, and function as inductive biases for recurrent neural networks"
+  authors:
+    - family-names: Shakiba
+      given-names: Mo
+    - family-names: Rokni
+      given-names: Rana
+    - family-names: Mohammad
+      given-names: Mohammadi
+    - family-names: Dehghani
+      given-names: Nima
+      email: nima.dehghani@mit.edu
+  year: 2026
+  journal: "arXiv"
+  identifiers:
+    - type: other
+      value: "arXiv:2606.14975"
+    - type: doi
+      value: "10.48550/arXiv.2606.14975"
+  url: "https://arxiv.org/abs/2606.14975"
