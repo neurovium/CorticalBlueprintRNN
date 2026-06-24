@@ -1,15 +1,16 @@
-# Cortical Blueprint for RNNs — code release
+# Cortical Blueprint for RNNs 
+[![DOI](https://zenodo.org/badge/DOI/10.5281%2Fzenodo.20834365.svg)](https://doi.org/10.5281/zenodo.20834365)
+[![Paper Card](https://img.shields.io/badge/Paper%20Card-Neurovium-6f42c1)](https://neurovium.science/papers/Cortical-blueprint-RNN/)
+[![Blog Post](https://img.shields.io/badge/Blog%20Post-Neurovium-0a7cff)](https://neurovium.science/posts/pblog-Cortical-blueprint-RNN/)
 
-This directory is the self-contained code accompanying the paper:
+Companion code for the paper:
 
 **Harnessing cortical geometry, wiring, and function as inductive biases for recurrent neural networks**
-
-Mo Shakiba, Rana Rokni, Mohammad Mohammadi and Nima Dehghani.
+> Mo Shakiba, Rana Rokni, Mohammad Mohammadi and Nima Dehghani. 2026.
 
 [![arXiv](https://img.shields.io/badge/arXiv-2606.11415-b31b1b.svg)](https://arxiv.org/abs/2606.14975)
 [![PDF](https://img.shields.io/badge/PDF-2606.11415-blue.svg)](https://arxiv.org/pdf/2606.14975)
 [![HTML](https://img.shields.io/badge/HTML-2606.11415-green.svg)](https://arxiv.org/html/2606.14975v1)
-
 
 This repository contains the training pipeline that builds and trains eleven biologically grounded RNN variants on three cognitive decision-making tasks using data from the [MICrONS](https://www.microns-explorer.org/cortical-mm3) program, and the post-hoc statistical analysis used in the paper's main text and Supplementary Results.
 
@@ -325,10 +326,19 @@ Other `(session, scan, field)` combinations from `Model/INF.md` reproduce the cr
 - Preprocessed weight-init inputs (this repo): `Model/DATA/info/<sess>_<scan>_<field>/`
 
 ---
-
 ## Citation
-If you use this code, please cite the accompanying paper:
 
+If you use this code, please cite **both the software and the paper**. The
+repository ships a [`CITATION.cff`](CITATION.cff), so GitHub's *"Cite this
+repository"* button and citation managers (Zenodo, Papers, etc.) can export the
+reference automatically.
+
+**The software:**
+
+> Mo Shakiba, Rana Rokni, Mohammad Mohammadi and Nima Dehghani. *Cortical Blueprint for RNNs*
+> 2026. https://doi.org/10.5281/zenodo.20834365
+
+**The paper**:
 ```bibtex
 @article{shakibaDehghani2026harnessingcorticalgeometrywiring,
       title={Harnessing cortical geometry, wiring, and function as inductive biases for recurrent neural networks}, 
